@@ -14,3 +14,6 @@ The data in the data/ directory comes from a variety of places. I acknowledge, i
 
 * The Stanford Center for Spatial and Textual Analysis (CESTA) for the population data;
 * The New Bedford Whaling Museum for their data on ship's crews.
+
+# Course Websit 
+http://benschmidt.org/HDA15/?page_id=10
