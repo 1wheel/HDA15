@@ -66,17 +66,47 @@ img {
 </div>
 
 
-<div id="load-data-from-url" class="section level3">
-<h3>Load data from URL</h3>
+<div id="load-data-from-url" class="section level5">
+<h5>Load data from URL</h5>
 <pre class="r"><code>words &lt;-read.table(&quot;http://benschmidt.org/words.txt&quot;)</code></pre>
 </div>
-<div id="words-with-6-consective-i-or-j" class="section level3">
-<h3>Words with 6 consective i or j</h3>
+<div id="words-with-6-consective-i-or-j" class="section level5">
+<h5>Words with 6 consective i or j</h5>
 <pre class="r"><code>subset(words, grepl(&quot;[il][il][il][il][il][il]&quot;, V1))</code></pre>
 <pre><code>##                 V1
 ## 61665   milliliter
 ## 61666 milliliter's
 ## 61667  milliliters</code></pre>
+</div>
+<div id="words-that-use-all-the-vowels-in-alphabetical-order" class="section level5">
+<h5>Words that use all the vowels in alphabetical order</h5>
+<pre class="r"><code>subset(myData, grepl(&quot;.*a.*e.*i.*o.*u.*&quot;, V1))</code></pre>
+<pre><code>## Error in subset(myData, grepl(&quot;.*a.*e.*i.*o.*u.*&quot;, V1)): object 'myData' not found</code></pre>
+</div>
+<div id="replace-nu-and-neu-with-the-word-northeastern." class="section level5">
+<h5>Replace <code>&quot;NU&quot;</code> and <code>&quot;NEU&quot;</code> with the word “Northeastern.”</h5>
+<pre class="r"><code>gsub(&quot;NUE?&quot;, &quot;Northeastern&quot;, &quot;NU NEU NUE&quot;, perl=TRUE)</code></pre>
+<pre><code>## [1] &quot;Northeastern NEU Northeastern&quot;</code></pre>
+</div>
+<div id="i-before-e-except-after-c" class="section level5">
+<h5>i before e, except after c</h5>
+<pre class="r"><code>gsub(&quot;cie&quot;, &quot;cei&quot;, gsub(&quot;ei&quot;, &quot;ie&quot;, &quot;ei cei&quot;))</code></pre>
+<pre><code>## [1] &quot;ie cei&quot;</code></pre>
+</div>
+<div id="remove-duplicate-spaces" class="section level5">
+<h5>Remove duplicate spaces</h5>
+<pre class="r"><code>gsub(&quot; +&quot;, &quot; &quot;, &quot;a b  c     d e f   g&quot;, perl=TRUE)</code></pre>
+<pre><code>## [1] &quot;a b c d e f g&quot;</code></pre>
+</div>
+<div id="remove-duplicate-spaces-1" class="section level5">
+<h5>Remove duplicate spaces</h5>
+<pre class="r"><code>gsub(&quot; +&quot;, &quot; &quot;, &quot;a b  c     d e f   g&quot;, perl=TRUE)</code></pre>
+<pre><code>## [1] &quot;a b c d e f g&quot;</code></pre>
+</div>
+<div id="remove-duplicate-spaces-2" class="section level5">
+<h5>Remove duplicate spaces</h5>
+<pre class="r"><code>gsub(&quot; +&quot;, &quot; &quot;, &quot;a b  c     d e f   g&quot;, perl=TRUE)</code></pre>
+<pre><code>## [1] &quot;a b c d e f g&quot;</code></pre>
 </div>
 
 

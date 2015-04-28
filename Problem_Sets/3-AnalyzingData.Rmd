@@ -219,12 +219,13 @@ crews = crews %>% mutate(year=gsub(".*(\\d{4}).*","\\1",ApproximateDeparture))
 1. Using summarize, find the minimum age in the set. (Remember, the function to find a minimum is `min`.)
 
 ``` {r Exercise 1a}
-
+crews %>% filter(Age>0) %>% summarize(min(Age))
 ```
 
 2. Using `filter`: what is the name of that youngest person? When did he or she sail?
 
 ``` {r Exercise 2a}
+> crews %>% filter(Age == 2)
 
 ```
 
@@ -233,13 +234,13 @@ crews = crews %>% mutate(year=gsub(".*(\\d{4}).*","\\1",ApproximateDeparture))
 
 
 ``` {r Exercise 3a}
-
+crews %>% filter(1850 <= year && year <= 1880) %>% summarize(n())
 ```
 
 4. Question 3 told you how many sailors left on barks in those years. How many distinct voyages left? The variable `Voyage.number` identifies distinct voyages in this set. (This may require reading some documentation: reach out to me or a classmate if you can't figure it out. There are at least two ways: one involves using the `dplyr` function `distinct` before summarizing, and the second involves using the functions `length` and `unique` in your call to `summarize`.)
 
 ``` {r Exercise 4a}
-
+crews %>% filter(1850 <= year && year <= 1880) %>% distinct(Voyage.number) %>% summarize(n())
 ```
 
 ## Grouping
@@ -267,7 +268,7 @@ Read the line of code below. What does it do? Can you come up with any patterns 
 crews %>% 
   filter(Age>0) %>% 
   group_by(Skin) %>% 
-  summarize(averageAge=median(Age),count=n()) %>% 
+  summarize(averageAge=median(Age) * 1.0,count=n()) %>% 
   filter(count>100) %>% 
   arrange(averageAge)
 ```
