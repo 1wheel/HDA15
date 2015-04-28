@@ -1,0 +1,57 @@
+---
+   title: "1a-regexSet"  
+   author: "Adam Pearce"  
+   output:  
+     html_document:  
+       keep_md: true  
+
+---
+
+
+```{r setup, include = FALSE, cache = FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+##### Load data from URL
+```{r}
+words <-read.table("http://benschmidt.org/words.txt")
+```
+
+##### Words with 6 consective i or j
+```{r}
+subset(words, grepl("[il][il][il][il][il][il]", V1))
+```
+
+##### Words that use all the vowels in alphabetical order
+```{r}
+subset(myData, grepl(".*a.*e.*i.*o.*u.*", V1))
+```
+
+##### Replace `"NU"` and `"NEU"` with the word "Northeastern."
+```{r}
+gsub("NUE?", "Northeastern", "NU NEU NUE", perl=TRUE)
+```
+
+##### i before e, except after c
+```{r}
+gsub("cie", "cei", gsub("ei", "ie", "ei cei"))
+```
+
+
+##### Remove duplicate spaces
+```{r}
+gsub(" +", " ", "a b  c     d e f   g", perl=TRUE)
+```
+
+
+##### Remove duplicate spaces
+```{r}
+gsub(" +", " ", "a b  c     d e f   g", perl=TRUE)
+```
+
+
+##### Remove duplicate spaces
+```{r}
+gsub(" +", " ", "a b  c     d e f   g", perl=TRUE)
+```
+

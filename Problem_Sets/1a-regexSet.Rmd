@@ -7,14 +7,15 @@ output: html_document
 
 
 
-### Exercises
+### Exercises A:
 Download the dictionary from benschmidt.org/words.txt and load it into a text editor.
 
 1. The word "picalilli" contains five consecutive "l" or "i" letters. What word contains 6 consecutive "i" or "ls"?
+
 2. What word uses all five vowels, in alphabetical order?
 
 
-### Exercises:
+### Exercises B:
 
 1. Design a regex that replaces the text strings `"NU"` and `"NEU"` with the word "Northeastern."
 
