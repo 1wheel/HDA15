@@ -218,13 +218,16 @@ a = read.csv("data/CESTACityData.csv")
 4. This data is clearly not tidy. (Why not?) Use `gather` to turn it into tidy data, and save it as a data.frame called "tidied". (Hint: the final frame will have a column called "year:" You will have to use gsub to remove Xs from the year name.)
 
 ``` {r}
+years <- a %>%
+gather(year, pop, X1790:X1800:X1810:X1820:X1840:X1850:X1860:X1870:X1880:X1890:X1900:X1910:X1920:X1940:X1950:X1960:X1970:X1980:X1990:X2000:X2010) %>%
+mutate(year = gsub("X", "", year) + 0)
 
 ```
 
 5. Use the `?` operator to read about the function `write.csv`. Save the result to disk: we'll be exploring it more next week.
 
 ``` {r}
-
+write.csv(years, file='data/years')
 ```
 
 
