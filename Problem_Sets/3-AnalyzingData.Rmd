@@ -285,13 +285,17 @@ One last useful pair of functions in dplyr are `select` and `mutate`. Select sim
 1. Read in the data frame `tidied` that you made in the last problem set, and select only the columns for city, state, year, and population.
 
 ``` {r Exercise 1}
-
+census = read.csv('data/years')
+census %>% 
+  select(City, ST, year, pop)
 ```
 
 2. Because the original data was not tidy, you probably have a lot of zeroes in there. Remove them.
 
 ``` {r Exercise 2}
-
+census %>%
+select(City, ST, year, pop)  %>%
+filter(pop > 0)
 ```
 
 3. The `slice` operator is much like `head`, but lets you specify precisely the positions you want. `slice(1:10)` will give you the first ten rows of a frame; `slice(4)` will give you the fourth row of a frame.\
@@ -299,11 +303,23 @@ Using `slice`: What were the ten largest cities in the United States in 1820?
 
 ``` {r Exercise 3}
 
+census %>%
+select(City, ST, year, pop)  %>%
+filter(pop > 0)  %>%
+filter(year == 1820)  %>%
+arrange(-pop)  %>%
+slice(1:10)
 ```
 
 4. `slice` works *by group*. Using `slice` and `group_by`, what was the third largest city in the United States for every census year?
 
 ``` {r Exercise 4}
+census %>%
+select(City, ST, year, pop)  %>%
+filter(pop > 0)  %>%
+group_by(year)  %>%
+arrange(-pop)  %>%
+slice(3:3)
 
 ```
 
